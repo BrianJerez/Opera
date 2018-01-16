@@ -7,9 +7,9 @@ body{
 .white-box{
     background: white !important;
     height: 500px;
-    -webkit-box-shadow: 0px 0px 31px 0px rgba(0,0,0,0.23);
-    -moz-box-shadow: 0px 0px 31px 0px rgba(0,0,0,0.23);
-    box-shadow: 0px 0px 31px 0px rgba(0,0,0,0.23);
+    -webkit-box-shadow: 0px 0px 6px 0px rgba(0,0,0,0.23);
+    -moz-box-shadow: 0px 0px 6px 0px rgba(0,0,0,0.23);
+    box-shadow: 0px 0px 6px 0px rgba(0,0,0,0.23);
 
 }
 
@@ -23,12 +23,87 @@ body{
     margin-left: 0px !important;
     height: 100%;
     color: white;
+    font-family: asar;
 }
 
-.dark-picture::before{
-    content: '';
+.sobreposision{
+    background: rgba(6, 6, 6, 0.92);
     width: 48.6%;
     height: 100%;
     position: absolute;
-    background: rgba(31, 31, 31, 0.5);
+}
+
+form{
+    padding: 80px 40px;
+}
+
+form p {
+    margin-bottom: 25px;
+}
+
+label {
+    text-transform: uppercase;
+    display: block;
+    font-size: 11px;
+    color:#9c9c9c;
+    margin-bottom: 10px;
+    font-family: source sans pro;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+}
+
+input[type=text], input[type=password]{
+    border:none;
+    border-bottom: 1px solid #c7c4c4;
+    outline: none;
+    width: 120%;
+    padding-bottom: 8px;
+    color:#505050;
+    font-weight: 600;
+    font-family: source sans pro;
+}
+
+input[type=password], input[type=password]:focus{
+    color:#f13953;
+}
+
+button{
+    cursor: pointer;
+    margin-right:15px;
+    margin-top:10px;
+    padding: 9px 43px;
+    font-family: source sans pro;
+    background: #f13953;
+    color:white;
+    text-transform: uppercase;
+    font-size: 13px;
+    font-weight: 600;
+    border-radius: 20px;
+    border:none;
+}
+
+.Register-SignUp-Form, a{
+    color: #9c9c9c;
+    font-size: 15px;
+    font-family: source sans pro;
+}
+
+.Margin-Fix form{
+    padding: 150px 40px;
+}
+
+.nav a:first-child{
+    margin-left: 65px;
+}
+.nav a {
+    color: #f13953;
+    text-decoration: none;
+    margin-right: 10px;
+}
+
+.lema{
+    text-align: center;
+    font-size: 35px;
+    padding-top: 160px;
+    padding-bottom: 140px;
 }
