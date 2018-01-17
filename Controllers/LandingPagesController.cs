@@ -24,7 +24,7 @@ namespace Opera.Controllers
             ModelState.Clear();
             return View();
         }
-
+ 
         [HttpPost, Route("LoginBD")]
         public async Task<IActionResult> LoginBD(UserLoginAndRegister currentUser)
         {
