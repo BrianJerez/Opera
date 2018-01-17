@@ -15,7 +15,7 @@ namespace Opera
 {
     public class Startup
     {
-        private string _identityString = @"your connection string for identity goes here!";
+        private string _identityString = @"your connection string should be here";
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddDbContext<IdentityDataContext>(options => {
@@ -42,7 +42,7 @@ namespace Opera
             }
 
             app.UseAuthentication();
-
+            
             app.UseMvc(routes => {
                 routes.MapRoute("default", "{controller=LandingPages}/{action=Index}/{id?}");
             });

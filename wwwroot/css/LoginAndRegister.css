@@ -65,7 +65,7 @@ input[type=text], input[type=email], input[type=password]{
 
 input[type=password], input[type=password]:focus{
     color:#f13953;
-}
+} 
 
 button{
     cursor: pointer;
