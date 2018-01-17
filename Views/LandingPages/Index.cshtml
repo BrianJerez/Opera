@@ -1,3 +1,5 @@
+@addTagHelper "*, Microsoft.AspNetCore.Mvc.TagHelpers"
+@model Opera.Models.UserLoginAndRegister
 @{
     Layout = null;
 }
@@ -36,14 +38,14 @@
                 </div>
             </div>
             <div class="grid_4 Register-SignUp-Form Margin-Fix">
-                <form>
+                <form action="/LoginBD" method="post">
                     <p>
                         <label>Usuario</label>
-                        <input type="text"/>
+                        <input asp-for="UserName"  type="text"/>
                     </p>
                     <p>
                         <label>Contrasena</label>
-                        <input type="password"/>
+                        <input asp-for="Password" type="Password"/>
                     </p>
                     <button type="submit">Entrar</button>
                     <a href="/Registro">Registro.</a>

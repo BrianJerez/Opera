@@ -52,7 +52,7 @@ label {
     letter-spacing: 0.5px;
 }
 
-input[type=text], input[type=password]{
+input[type=text], input[type=email], input[type=password]{
     border:none;
     border-bottom: 1px solid #c7c4c4;
     outline: none;
