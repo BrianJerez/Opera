@@ -4,7 +4,7 @@ namespace Opera.Models
 {
     public class UserLoginAndRegister
     {
-        [DataType(DataType.Text)] 
+        [DataType(DataType.Text)]
         public string UserName { get; set; }
 
         [DataType(DataType.EmailAddress)]

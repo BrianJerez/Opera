@@ -3,7 +3,7 @@ using Microsoft.AspNetCore.Authorization;
 
 namespace Opera.Controllers
 {
-    [Authorize] 
+    [Authorize]
     public class AppPagesController
     {
         public IActionResult Index()

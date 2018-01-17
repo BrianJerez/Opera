@@ -15,7 +15,7 @@ namespace Opera
 {
     public class Startup
     {
-        private string _identityString = @"your connection string should be here";
+        private string _identityString = @"";
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddDbContext<IdentityDataContext>(options => {

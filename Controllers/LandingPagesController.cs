@@ -45,7 +45,7 @@ namespace Opera.Controllers
             return View();
         }
 
-        [HttpPost, Route("RegistroBD")] 
+        [HttpPost, Route("RegistroBD")]
         public async Task<IActionResult> RegistroBD(UserLoginAndRegister newUser)
         {
             IdentityUser _newUser = new IdentityUser
