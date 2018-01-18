@@ -62,6 +62,8 @@ namespace Opera.Controllers
                 return RedirectToAction("Registro", "LandingPages");
             }
 
+            await _userManager.AddToRoleAsync(_newUser, "Usuario");
+            
             return RedirectToAction("Index", "LandingPages");
         }
 
