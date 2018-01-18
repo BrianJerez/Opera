@@ -1,13 +1,3 @@
-C:\Users\JustBrian\Desktop\asp projects\Opera\bin\Debug\netcoreapp2.0\Opera.deps.json
-C:\Users\JustBrian\Desktop\asp projects\Opera\bin\Debug\netcoreapp2.0\Opera.runtimeconfig.json
-C:\Users\JustBrian\Desktop\asp projects\Opera\bin\Debug\netcoreapp2.0\Opera.runtimeconfig.dev.json
-C:\Users\JustBrian\Desktop\asp projects\Opera\bin\Debug\netcoreapp2.0\Opera.dll
-C:\Users\JustBrian\Desktop\asp projects\Opera\bin\Debug\netcoreapp2.0\Opera.pdb
-C:\Users\JustBrian\Desktop\asp projects\Opera\obj\Debug\netcoreapp2.0\Opera.csproj.CoreCompileInputs.cache
-C:\Users\JustBrian\Desktop\asp projects\Opera\obj\Debug\netcoreapp2.0\Opera.AssemblyInfoInputs.cache
-C:\Users\JustBrian\Desktop\asp projects\Opera\obj\Debug\netcoreapp2.0\Opera.AssemblyInfo.cs
-C:\Users\JustBrian\Desktop\asp projects\Opera\obj\Debug\netcoreapp2.0\Opera.dll
-C:\Users\JustBrian\Desktop\asp projects\Opera\obj\Debug\netcoreapp2.0\Opera.pdb
 C:\Users\Estudiante\Desktop\Opera\bin\Debug\netcoreapp2.0\Opera.deps.json
 C:\Users\Estudiante\Desktop\Opera\bin\Debug\netcoreapp2.0\Opera.runtimeconfig.json
 C:\Users\Estudiante\Desktop\Opera\bin\Debug\netcoreapp2.0\Opera.runtimeconfig.dev.json
@@ -18,3 +8,13 @@ C:\Users\Estudiante\Desktop\Opera\obj\Debug\netcoreapp2.0\Opera.AssemblyInfoInpu
 C:\Users\Estudiante\Desktop\Opera\obj\Debug\netcoreapp2.0\Opera.AssemblyInfo.cs
 C:\Users\Estudiante\Desktop\Opera\obj\Debug\netcoreapp2.0\Opera.dll
 C:\Users\Estudiante\Desktop\Opera\obj\Debug\netcoreapp2.0\Opera.pdb
+C:\Users\JustBrian\Desktop\asp projects\Opera\bin\Debug\netcoreapp2.0\Opera.deps.json
+C:\Users\JustBrian\Desktop\asp projects\Opera\bin\Debug\netcoreapp2.0\Opera.runtimeconfig.json
+C:\Users\JustBrian\Desktop\asp projects\Opera\bin\Debug\netcoreapp2.0\Opera.runtimeconfig.dev.json
+C:\Users\JustBrian\Desktop\asp projects\Opera\bin\Debug\netcoreapp2.0\Opera.dll
+C:\Users\JustBrian\Desktop\asp projects\Opera\bin\Debug\netcoreapp2.0\Opera.pdb
+C:\Users\JustBrian\Desktop\asp projects\Opera\obj\Debug\netcoreapp2.0\Opera.csproj.CoreCompileInputs.cache
+C:\Users\JustBrian\Desktop\asp projects\Opera\obj\Debug\netcoreapp2.0\Opera.AssemblyInfoInputs.cache
+C:\Users\JustBrian\Desktop\asp projects\Opera\obj\Debug\netcoreapp2.0\Opera.AssemblyInfo.cs
+C:\Users\JustBrian\Desktop\asp projects\Opera\obj\Debug\netcoreapp2.0\Opera.dll
+C:\Users\JustBrian\Desktop\asp projects\Opera\obj\Debug\netcoreapp2.0\Opera.pdb

@@ -16,7 +16,7 @@ namespace Opera
 {
     public class Startup
     {
-        private string _identityString = @"Data Source=DESKTOP-2U6NEI8\MSSQLSERVER01;Initial Catalog=Opera_Identity;Integrated Security=True;Pooling=False";
+        private string _identityString = @"Data Source=CHANGE_ME;Initial Catalog=Opera_Identity;Integrated Security=True;Pooling=False";
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddDbContext<IdentityDataContext>(options => {
@@ -32,6 +32,7 @@ namespace Opera
             }).AddEntityFrameworkStores<IdentityDataContext>();
             
             services.AddSingleton<RoleSeedService>();
+            services.AddSingleton<UserSeedService>();
 
             services.AddMvc();
         }
@@ -47,16 +48,19 @@ namespace Opera
             app.UseAuthentication();
 
             var seedRoles = services.GetService<RoleSeedService>();
+            var seedUsers = services.GetService<UserSeedService>();
 
-            await seedRoles.SeedRoles("Administrador");
-            await seedRoles.SeedRoles("Moderador");
-            await seedRoles.SeedRoles("Usuario");
+            seedRoles.SeedRoles("Administrador").Wait();
+            seedRoles.SeedRoles("Moderador").Wait();
+            seedRoles.SeedRoles("Usuario").Wait();
 
             app.UseMvc(routes => {
                 routes.MapRoute("default", "{controller=LandingPages}/{action=Index}/{id?}");
             });
 
             app.UseStaticFiles();
+
+            await seedUsers.SeedNewUser("Admin", "Admin@gmail.com", "password1");
         }
     }
 }
