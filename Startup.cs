@@ -10,12 +10,13 @@ using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.EntityFrameworkCore;
 using Opera.Models;
+using Opera.CustomServices;
 
 namespace Opera
 {
     public class Startup
     {
-        private string _identityString = @"";
+        private string _identityString = @"Data Source=DESKTOP-2U6NEI8\MSSQLSERVER01;Initial Catalog=Opera_Identity;Integrated Security=True;Pooling=False";
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddDbContext<IdentityDataContext>(options => {
@@ -30,11 +31,13 @@ namespace Opera
                 options.Password.RequireNonAlphanumeric = false;
             }).AddEntityFrameworkStores<IdentityDataContext>();
             
+            services.AddSingleton<RoleSeedService>();
+
             services.AddMvc();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env)
+        public async void Configure(IApplicationBuilder app, IHostingEnvironment env, IServiceProvider services)
         {
             if (env.IsDevelopment())
             {
@@ -42,7 +45,13 @@ namespace Opera
             }
 
             app.UseAuthentication();
-            
+
+            var seedRoles = services.GetService<RoleSeedService>();
+
+            await seedRoles.SeedRoles("Administrador");
+            await seedRoles.SeedRoles("Moderador");
+            await seedRoles.SeedRoles("Usuario");
+
             app.UseMvc(routes => {
                 routes.MapRoute("default", "{controller=LandingPages}/{action=Index}/{id?}");
             });

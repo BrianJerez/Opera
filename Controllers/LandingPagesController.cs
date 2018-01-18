@@ -1,6 +1,7 @@
 using Microsoft.AspNetCore.Mvc;
 using Opera.Models;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Authorization;
 using System.Threading.Tasks;
 
 namespace Opera.Controllers
@@ -69,7 +70,7 @@ namespace Opera.Controllers
         public async Task<IActionResult> Logout()
         {
             await _signInManager.SignOutAsync();
-            return RedirectToAction("Index", "LandingPages")
+            return RedirectToAction("Index", "LandingPages");
         }
     }
 }
