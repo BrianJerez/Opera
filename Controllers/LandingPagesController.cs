@@ -22,6 +22,9 @@ namespace Opera.Controllers
         [Route("")]
         public IActionResult Index()
         {
+            if(User.Identity.IsAuthenticated)
+                return RedirectToAction("Index", "AppPages");
+
             ModelState.Clear();
             return View();
         }
@@ -42,6 +45,9 @@ namespace Opera.Controllers
         [Route("Registro")]
         public IActionResult Registro()
         {
+            if(User.Identity.IsAuthenticated)
+                return RedirectToAction("Index", "AppPages");
+
             ModelState.Clear();
             return View();
         }

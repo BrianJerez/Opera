@@ -4,11 +4,11 @@ using Microsoft.AspNetCore.Authorization;
 namespace Opera.Controllers
 {
     [Authorize] 
-    public class AppPagesController
+    public class AppPagesController : Controller
     {
         public IActionResult Index()
         {
-            return new ContentResult {Content = "usted esta logeado!"};
+            return View();
         }
     }
 }
