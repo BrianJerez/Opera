@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>@ViewBag.Title</title>
+
+    <link href="css/grid.css" rel="stylesheet">
+    <link href="css/normalize.css" rel="stylesheet">
+    <link href="css/AppPagesStyle.css" rel="stylesheet">
+
+    <link href="https://fonts.googleapis.com/css?family=Yantramanav" rel="stylesheet">
+</head>
+<body>
+    <div class="nav-section">
+        <div class="container_12">
+            <div class="grid_2">
+                <a href="/dashboard">Home</a>
+            </div>
+            <div class="pull_1 grid_4">
+                <form action="" method="post">
+                    <input type="text">
+                </form>
+            </div>
+            <div class="push_1 grid_6">
+                <nav class="menu">
+                    <a href="#">Notifications</a>
+                    <a href="#">Messages</a>
+                    <a href="#">Profile</a>
+                    <form action="logout" method="post">
+                        <button type="submit">Logout</button>
+                    </form>
+                </nav>
+            </div>
+        </div>
+    </div>
+    @RenderBody()    
+</body>
+</html>

@@ -13,10 +13,7 @@ namespace Opera.Controllers
     {
         private OperaDataContext _db;
 
-        public AppPagesController(OperaDataContext db)
-        {
-            _db = db;
-        }
+        public AppPagesController(OperaDataContext db) => _db = db;
 
         [Route("dashboard")]
         public IActionResult Index()

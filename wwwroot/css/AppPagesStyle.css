@@ -1,0 +1,52 @@
+body{
+    min-width: 1000px;
+    font-family: Yantramanav;
+}
+
+.nav-section{
+    background: #18a7dc;
+    background-image: url(../img/static/circuit-board.svg);
+    height: 80px;
+    width: 100%;
+    padding-top: 60px !important;
+    color:white;
+}
+
+.nav-section a {
+    text-decoration: none;
+    color:white;
+}
+
+.menu a{
+    padding: 10px 20px;
+}
+
+.menu form {
+    display: inline;
+    font-family: inherit;
+}
+
+.menu form button{
+    cursor: pointer;
+    padding: 11px 20px;
+    position: absolute;
+    background: transparent;
+    font-family: inherit;
+    color: white;
+    border: none;
+    margin-left: 4px;
+    margin-top: -11px;
+}
+
+.menu a:hover, .menu form button:hover{
+    background:#0d678879;
+}
+
+.nav-section form input[type=text]{
+    padding: 12px 20px;
+    width: 136%;
+    margin-top: -30px;
+    border: 7px solid #18a7dcb0;
+    border-radius: 1px;
+    color: #18a7dc;
+}

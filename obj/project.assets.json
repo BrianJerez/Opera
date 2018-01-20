@@ -12547,11 +12547,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\JustBrian\\Desktop\\asp projects\\Opera\\Opera.csproj",
+      "projectUniqueName": "c:\\Users\\JustBrian\\Desktop\\asp projects\\Opera\\Opera.csproj",
       "projectName": "Opera",
-      "projectPath": "C:\\Users\\JustBrian\\Desktop\\asp projects\\Opera\\Opera.csproj",
+      "projectPath": "c:\\Users\\JustBrian\\Desktop\\asp projects\\Opera\\Opera.csproj",
       "packagesPath": "C:\\Users\\JustBrian\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\JustBrian\\Desktop\\asp projects\\Opera\\obj\\",
+      "outputPath": "c:\\Users\\JustBrian\\Desktop\\asp projects\\Opera\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
