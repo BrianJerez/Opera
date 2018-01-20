@@ -16,8 +16,8 @@ namespace Opera
 {
     public class Startup
     {
-        private string _OperaString = @"Data Source= CHANGE_ME ;Initial Catalog=Opera;Integrated Security=True;Pooling=False";
-        private string _identityString = @"Data Source= CHANGE_ME ;Initial Catalog=Opera_Identity;Integrated Security=True;Pooling=False";
+        private string _OperaString = @"Data Source=DESKTOP-2U6NEI8\MSSQLSERVER01;Initial Catalog=Opera;Integrated Security=True;Pooling=False";
+        private string _identityString = @"Data Source=DESKTOP-2U6NEI8\MSSQLSERVER01;Initial Catalog=Opera_Identity;Integrated Security=True;Pooling=False";
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddDbContext<OperaDataContext>(options => {

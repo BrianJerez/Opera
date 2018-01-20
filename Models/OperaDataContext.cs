@@ -5,9 +5,10 @@ namespace Opera.Models
 {
     public class OperaDataContext : DbContext
     {
-        List<Question> Questions = new List<Question>();
-        List<Answer> Answers = new List<Answer>();
-        List<Category> Categories = new List<Category>();
+        public DbSet<Question> Questions { get; set; }
+        public DbSet<Answer> Answers { get; set; }
+        public DbSet<Category> Categories { get; set; }
+        
         public OperaDataContext(DbContextOptions<OperaDataContext> options)
         :base(options)
         {
