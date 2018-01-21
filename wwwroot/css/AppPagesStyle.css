@@ -10,6 +10,8 @@ body{
     width: 100%;
     padding-top: 60px !important;
     color:white;
+    overflow: hidden;
+    margin-bottom: 60px;
 }
 
 .nav-section a {
@@ -49,4 +51,39 @@ body{
     border: 7px solid #18a7dcb0;
     border-radius: 1px;
     color: #18a7dc;
+}
+
+.ask-button a{
+    text-decoration: none;
+    padding: 14px 30px;
+    background: #18a7dc;
+    color:white;
+    font-size: 30px;
+}
+
+.addQuestionForm input[type=text]{
+    padding: 10px 20px;
+    font-family: Yantramanav;
+    min-width: 100%;
+    margin-bottom: 30px;
+}
+
+.addQuestionForm textarea{
+    padding: 20px 21px;
+    height: 200px;
+    resize: none;
+    overflow-y: auto;
+    min-width: 100%;
+    font-family: Yantramanav;
+    margin-bottom: 21px;
+    white-space:pre-wrap;
+}
+
+.addQuestionForm button{
+    border:none;
+    padding:10px 20px;
+    background: #18a7dc;
+    font-family: Yantramanav;
+    cursor: pointer;
+    color: white;
 }

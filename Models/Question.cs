@@ -1,4 +1,5 @@
 using System.ComponentModel.DataAnnotations;
+using System;
 
 namespace Opera.Models
 {
@@ -12,5 +13,9 @@ namespace Opera.Models
         public string Description_Question { get; set; }
         
         public int Votes_Question { get; set; }
+
+        public string Id_User { get; set; }
+
+        public DateTime Date_Question { get; set; }
     }
 }

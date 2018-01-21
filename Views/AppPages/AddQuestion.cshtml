@@ -1,0 +1,16 @@
+@addTagHelper "*, Microsoft.AspNetCore.Mvc.TagHelpers"
+@model Opera.Models.Question
+@{
+    Layout = "_AppLayout";
+}
+
+<div class="container_12">
+    <div class="grid_7">
+        <form class="addQuestionForm" asp-action="InsertQuestion" method="post">
+            <input asp-for="Title_Question" type="text">
+            <textarea asp-for="Description_Question">
+            </textarea>
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+</div>

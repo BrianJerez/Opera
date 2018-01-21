@@ -38,7 +38,7 @@ namespace Opera
             
             services.AddSingleton<RoleSeedService>();
             services.AddSingleton<UserSeedService>();
-
+            services.AddTransient<MarkDownService>();
             services.AddMvc();
         }
 
