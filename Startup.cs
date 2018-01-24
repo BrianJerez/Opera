@@ -35,7 +35,11 @@ namespace Opera
                 options.Password.RequiredLength = 6;
                 options.Password.RequireNonAlphanumeric = false;
             }).AddEntityFrameworkStores<IdentityDataContext>();
-            
+
+            services.ConfigureApplicationCookie(options =>{
+                options.LoginPath = "/";
+            });
+
             services.AddSingleton<RoleSeedService>();
             services.AddSingleton<UserSeedService>();
             services.AddTransient<MarkDownService>();
