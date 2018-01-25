@@ -5,7 +5,7 @@ namespace Opera.Models
     public class Category
     {
         [Key]
-        public int Id_Category { get; set; }
+        public int CategoryId { get; set; }
 
         public string Title_Category { get; set; }
         

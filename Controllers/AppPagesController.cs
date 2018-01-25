@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.EntityFrameworkCore;
 using Opera.Models;
+using Opera.ViewModels;
 using System.Threading.Tasks;
 using Markdig;
 
@@ -43,11 +44,11 @@ namespace Opera.Controllers
 
             var newQuestion = new Question
             {
-                Title_Question = info.Title_Question,
-                Description_Question = info.Description_Question,
-                Id_User = userId,
-                Votes_Question = 0,
-                Date_Question = DateTime.Now,
+                QuestionTitle = info.QuestionTitle,
+                QuestionDescription = info.QuestionDescription,
+                UserId = userId,
+                QuestionVotes = 0,
+                QuestionDate = DateTime.Now,
             };
 
             await _db.Questions.AddAsync(newQuestion);
@@ -59,12 +60,34 @@ namespace Opera.Controllers
         [Route("question/{id:int}")]
         public IActionResult Question(int id)
         {
-            var y = _db.Questions.FirstOrDefault(x => x.Id_Question == id);
-            var mx = Markdown.ToHtml(y.Description_Question).Replace(@"&lt;","<").Replace(@"&gt;",">").Replace(@"&#47;", "/");
+            var QuestionVM = new QuestionViewModel
+            {
+                GetQuestion = _db.Questions.FirstOrDefault( x => x.QuestionId == id),
+                Answers = _db.Answers.Where(x => x.QuestionId == id)
+            };
+            var y = _db.Questions.FirstOrDefault(x => x.QuestionId == id);
+
+            var mx = Markdown.ToHtml(y.QuestionDescription);
             ViewBag.Contenido = mx;
-            Console.WriteLine(mx);
-            return View(y);
+            
+            return View(QuestionVM);
         }
+        
+        [HttpPost, Route("AddAnswer/{id:int}")]
+        public async Task<IActionResult> AddAnswer(int id, QuestionViewModel answerData)
+        {
+            var newAnswer = new Answer
+            {
+                Content_Answer = answerData.AnswerContent,
+                QuestionId = id
+            };
+
+            await _db.Answers.AddAsync(newAnswer);
+            _db.SaveChanges();
+
+            return RedirectToAction("question", id);
+        }
+
         //todo
         //add question action
         //implement a search, looking in the question table if contains the word

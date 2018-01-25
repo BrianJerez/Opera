@@ -1,14 +1,33 @@
-@model Opera.Models.Question
+@model Opera.ViewModels.QuestionViewModel
+@addTagHelper "*, Microsoft.AspNetCore.Mvc.TagHelpers"
 @{
     Layout = "_AppLayout";
+    var idCopy = @Model.GetQuestion.QuestionId;
 }
 
 <div class="container_12">
     <div class="grid_7 question-box-style">
-        <h1>@Model.Title_Question.Substring(0, 1).ToUpper()@Model.Title_Question.Substring(1, @Model.Title_Question.Length-1)</h1>
+        <h1>@Model.GetQuestion.QuestionTitle.Substring(0, 1).ToUpper()@Model.GetQuestion.QuestionTitle.Substring(1, @Model.GetQuestion.QuestionTitle.Length-1)</h1>
         <div id="test"></div>
         <span class="upvote-box"><a href="#">Like</a></span>
     </div>
+    </div>
+</div>
+<div class="container_12">
+    <div class="grid_7 answer-form">
+        <form action="/addanswer/@idCopy" method="post">
+            <textarea asp-for="AnswerContent"></textarea>
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+</div>
+
+<div class="container_12">
+    <div class="grid_7 answers-from-users">
+        @foreach(var item in @Model.Answers)
+        {
+            <p>@item.Content_Answer</p>
+        }
     </div>
 </div>
 

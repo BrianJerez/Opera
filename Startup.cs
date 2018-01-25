@@ -17,7 +17,7 @@ namespace Opera
     public class Startup
     {
         private string _OperaString = @"Data Source=DESKTOP-2U6NEI8\MSSQLSERVER01;Initial Catalog=Opera;Integrated Security=True;Pooling=False";
-        private string _identityString = @"Data Source=DESKTOP-2U6NEI8\MSSQLSERVER01;Initial Catalog=Opera;Integrated Security=True;Pooling=False";
+        private string _identityString = @"Data Source=DESKTOP-2U6NEI8\MSSQLSERVER01;Initial Catalog=Opera_Identity;Integrated Security=True;Pooling=False";
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddDbContext<OperaDataContext>(options => {
@@ -38,6 +38,7 @@ namespace Opera
 
             services.ConfigureApplicationCookie(options =>{
                 options.LoginPath = "/";
+                options.LogoutPath = "/";
             });
 
             services.AddSingleton<RoleSeedService>();
