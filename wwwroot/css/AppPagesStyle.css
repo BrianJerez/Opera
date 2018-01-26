@@ -122,8 +122,9 @@ body{
 }
 
 .answer-form{
-    margin-top: 40px;
+    margin-top: 60px;
     padding-left: 20px;
+    margin-bottom: 25px;
 }
 
 .answer-form textarea{
@@ -135,4 +136,14 @@ body{
 
 .answer-form button{
     padding: 8px 10px;
+}
+
+.answers-from-users{
+    padding-left: 20px;
+    padding-top: 20px;
+    color: #06a6e2
+}
+
+.single-answer{
+    margin-bottom: 70px;
 }

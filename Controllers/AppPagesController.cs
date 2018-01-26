@@ -63,12 +63,10 @@ namespace Opera.Controllers
             var QuestionVM = new QuestionViewModel
             {
                 GetQuestion = _db.Questions.FirstOrDefault( x => x.QuestionId == id),
-                Answers = _db.Answers.Where(x => x.QuestionId == id)
+                Answers = _db.Answers.Where(x => x.QuestionId == id).OrderByDescending(X => X.AnswerId),
             };
-            var y = _db.Questions.FirstOrDefault(x => x.QuestionId == id);
 
-            var mx = Markdown.ToHtml(y.QuestionDescription);
-            ViewBag.Contenido = mx;
+            ViewBag.Contenido = Markdown.ToHtml(QuestionVM.GetQuestion.QuestionDescription).ToString();
             
             return View(QuestionVM);
         }
@@ -88,8 +86,15 @@ namespace Opera.Controllers
             return RedirectToAction("question", id);
         }
 
+        [HttpGet, Route("search")]
+        public IActionResult Search(string query)
+        {
+            IQueryable<Question> searchResult = _db.Questions.Where(x => x.QuestionTitle.Contains(query));
+            return View(searchResult);
+        }
+
         //todo
-        //add question action
-        //implement a search, looking in the question table if contains the word
+        //Add the most recent questions on the index
+        //implement a search, almost done I just have to stylish it
     }
 }
