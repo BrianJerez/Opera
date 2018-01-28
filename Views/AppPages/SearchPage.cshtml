@@ -14,17 +14,16 @@
                     <br/>
                 </div>
             }
-        } 
-        else 
+        } else 
         {
-            <h1 class="nm">"There are no matches :("</h1>
+            <h1 class="nm">There are no matches :(</h1>
         }
-        
+
         @if(Model.AmmountOfPages > 0)
         {
             for (int i = 0; i <= Model.AmmountOfPages; i++)
             {
-                @if(i == 0){
+                @if(ViewBag.Id == i){
                     <a>@(i+1)</a>    
                 }
                 else{
@@ -32,7 +31,6 @@
                 }
             }
         }
-
     </div>
     <div class="push_2 grid_3">
         <div class="ask-button">
@@ -40,4 +38,5 @@
         </div>
     </div>
 </div>
+
 
