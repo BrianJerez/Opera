@@ -28,7 +28,31 @@ namespace Opera.Controllers
         [Route("dashboard")]
         public IActionResult Index()
         {
-            return View();
+            PaginationViewModel paginationView = new PaginationViewModel
+            {
+                AmmountOfPages = Convert.ToDouble(_db.Questions.Count()) / Convert.ToDouble(5) > ( _db.Questions.Count() / 5 ) ? (_db.Questions.Count() / 5) + 1 : _db.Questions.Count() / 5,
+                Questions = _db.Questions.Take(5).OrderByDescending(x=>x.QuestionId)
+            };
+
+            return View(paginationView);
+        }
+
+        [Route("page/{id:int}")]
+        public IActionResult Page(int id)
+        {
+            if(id == 0 || id == 1){
+                return RedirectToAction("Index", "AppPages");
+            }
+
+            ViewBag.Id = id;
+
+            PaginationViewModel paginationView = new PaginationViewModel
+            {
+                AmmountOfPages = _db.Questions.Count() / 5,
+                Questions = _db.Questions.OrderByDescending(x => x.QuestionId).Skip((id-1)*5).Take(5)
+            };
+
+            return View(paginationView);
         }
 
         [Route("ask")]
@@ -60,12 +84,13 @@ namespace Opera.Controllers
         [Route("question/{id:int}")]
         public IActionResult Question(int id)
         {
+            ViewBag.Id = id;
             var QuestionVM = new QuestionViewModel
             {
                 GetQuestion = _db.Questions.FirstOrDefault( x => x.QuestionId == id),
                 Answers = _db.Answers.Where(x => x.QuestionId == id).OrderByDescending(X => X.AnswerId),
             };
-
+            
             ViewBag.Contenido = Markdown.ToHtml(QuestionVM.GetQuestion.QuestionDescription).ToString();
             
             return View(QuestionVM);
@@ -89,7 +114,9 @@ namespace Opera.Controllers
         [HttpGet, Route("search")]
         public IActionResult Search(string query)
         {
-            IQueryable<Question> searchResult = _db.Questions.Where(x => x.QuestionTitle.Contains(query));
+            IQueryable<Question> searchResult = _db.Questions.Where(x => 
+                x.QuestionTitle.Contains(query) || x.QuestionDescription.Contains(query)
+            );
             return View(searchResult);
         }
 

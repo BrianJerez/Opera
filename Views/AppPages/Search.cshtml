@@ -4,12 +4,11 @@
 }
 
 <div class="container_12">
-    <div class="grid_7 results">
+    <div class="push_1 grid_7 results">
         @foreach(var item in Model)
         {
-            <div class="result-item">
+            <div class="main-page-item">
                 <h2><a href="question/@item.QuestionId">@item.QuestionTitle</a></h2>
-                <p>@item.QuestionDescription</p>
                 <br/>
             </div>
         }

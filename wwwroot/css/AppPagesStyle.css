@@ -54,6 +54,9 @@ body{
     color: #18a7dc;
 }
 
+.ask-button{
+    margin-top: 12px;
+}
 .ask-button a{
     text-decoration: none;
     padding: 14px 30px;
@@ -104,8 +107,9 @@ body{
 }
 
 #test p{
-    color: #06a6e2;
-    font-weight: 200;
+    color: #68a3b9;
+    margin-bottom: -14px;
+    line-height: 20px;
 }
 
 #test img{
@@ -141,9 +145,15 @@ body{
 .answers-from-users{
     padding-left: 20px;
     padding-top: 20px;
-    color: #06a6e2
+    color: #68a3b9;
 }
 
 .single-answer{
     margin-bottom: 70px;
+}
+
+.main-page-item h2 a{
+    text-decoration: none;
+    color: #06a6e2;
+    font-weight: 100;
 }

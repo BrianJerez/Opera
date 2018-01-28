@@ -12,13 +12,17 @@
                 <br/>
             </div>
         }
-        @for(var i = 1; i<@Model.AmmountOfPages+1; i++)
+        @if(@Model.AmmountOfPages > 0)
         {
-            @if(i==1){
-                <a>@i</a>                
-            }else
+            @for(var i = 0; i<=@Model.AmmountOfPages; i++)
             {
-                <a href="/page/@(i)">@(i)</a>                
+                @if(ViewBag.Id ==(i+1)){
+                    <a>@(i+1)</a>    
+                }
+                else
+                {
+                    <a href="/page/@(i)">@(i+1)</a>
+                }
             }
         }
     </div>
