@@ -17,9 +17,9 @@ namespace Opera.Controllers
     public class AppPagesController : Controller
     {
         private OperaDataContext _db;
-        private UserManager<IdentityUser> _userManager;
+        private UserManager<CustomUserFields> _userManager;
 
-        public AppPagesController(UserManager<IdentityUser> userManager, OperaDataContext db) 
+        public AppPagesController(UserManager<CustomUserFields> userManager, OperaDataContext db) 
         {
             _userManager = userManager;
             _db = db;
@@ -102,7 +102,9 @@ namespace Opera.Controllers
             var newAnswer = new Answer
             {
                 Content_Answer = answerData.AnswerContent,
-                QuestionId = id
+                QuestionId = id,
+                AnswerDate = DateTime.Now,
+                UserId = _userManager.FindByNameAsync(User.Identity.Name).Result.Id
             };
 
             await _db.Answers.AddAsync(newAnswer);

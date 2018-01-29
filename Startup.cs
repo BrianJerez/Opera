@@ -28,7 +28,7 @@ namespace Opera
                 options.UseSqlServer(_identityString);
             });
 
-            services.AddIdentity<IdentityUser, IdentityRole>(options =>{
+            services.AddIdentity<CustomUserFields, IdentityRole>(options =>{
                 options.Password.RequireUppercase = false;
                 options.Password.RequireLowercase = false;
                 options.Password.RequireDigit = false;

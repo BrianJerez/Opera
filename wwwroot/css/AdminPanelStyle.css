@@ -1,0 +1,79 @@
+body{
+    background: #f5f6ff7a;
+    font-family: Yantramanav;
+}
+
+.nav-section {
+    background: #18a7dc;
+    background-image: url(../img/static/circuit-board.svg);
+    height: 80px;
+    width: 100%;
+    padding-top: 75px !important;
+    color: white;
+    overflow: hidden;
+}
+
+.menu a{
+    text-decoration: none;
+    color:white;
+    font-size: 14px;
+    margin-right: 20px;
+    border-radius: 2px;
+}
+
+.menu a:hover{
+    background: #0d678879;
+}
+
+.menu a:first-child{
+    padding: 38px 10px 6px 10px;
+    background-image: url("../img/static/speedometer.png");
+    background-repeat: no-repeat;
+    background-position-x: 25px;
+    background-position-y: 5px;
+}
+
+.menu a:nth-child(2){
+    padding: 38px 10px 6px 10px;
+    background-image: url("../img/static/book.png");
+    background-repeat: no-repeat;
+    background-position-x: 24px;
+    background-position-y: 5px;
+}
+
+.menu a:nth-child(3){
+    padding: 38px 10px 6px 10px;
+    background-image: url("../img/static/message.svg");
+    background-repeat: no-repeat;
+    background-position-x: 20px;
+    background-position-y: 8px;
+    background-size: 44%;
+}
+
+.menu a:nth-child(4){
+    padding: 38px 18px 6px 18px;
+    background-image: url("../img/static/user.svg");
+    background-repeat: no-repeat;
+    background-position-x: 20px;
+    background-position-y: 7px;
+    background-size: 46%;
+}
+
+.menu a:nth-child(5){
+    padding: 38px 10px 6px 10px;
+    background-image: url("../img/static/back.svg");
+    background-repeat: no-repeat;
+    background-position-x: 23px;
+    background-position-y: 7px;
+    background-size: 40%;
+}
+
+.content-section{
+    margin-top: -40px;
+}
+.content-container{
+    background: white;
+    height: 600px;
+    border-radius: 3px;
+    margin-bottom: 40px;
+}

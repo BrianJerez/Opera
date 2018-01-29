@@ -1,20 +1,21 @@
 using Microsoft.AspNetCore.Identity;
 using System.Threading.Tasks;
+using Opera.Models;
 
 namespace Opera.CustomServices
 {
     public class UserSeedService
     {
-        private UserManager<IdentityUser> _userManager;
+        private UserManager<CustomUserFields> _userManager;
 
-        public UserSeedService( UserManager<IdentityUser> userManager)
+        public UserSeedService( UserManager<CustomUserFields> userManager)
         {
             _userManager = userManager;
         }
 
         public async Task SeedNewUser(string userName, string email, string password)
         {
-            var _user = new IdentityUser
+            var _user = new CustomUserFields
             {
                 UserName = userName,
                 Email = email

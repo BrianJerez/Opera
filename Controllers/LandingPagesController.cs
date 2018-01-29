@@ -10,10 +10,10 @@ namespace Opera.Controllers
     public class LandingPagesController : Controller
     {
         
-        private readonly SignInManager<IdentityUser> _signInManager;
-        private readonly UserManager<IdentityUser> _userManager;
+        private readonly SignInManager<CustomUserFields> _signInManager;
+        private readonly UserManager<CustomUserFields> _userManager;
 
-        public LandingPagesController(SignInManager<IdentityUser> signInManager, UserManager<IdentityUser> userManager)
+        public LandingPagesController(SignInManager<CustomUserFields> signInManager, UserManager<CustomUserFields> userManager)
         {
             _signInManager = signInManager;
             _userManager =userManager;
@@ -55,7 +55,7 @@ namespace Opera.Controllers
         [HttpPost, Route("RegistroBD")]
         public async Task<IActionResult> RegistroBD(UserLoginAndRegister newUser)
         {
-            IdentityUser _newUser = new IdentityUser
+            CustomUserFields _newUser = new CustomUserFields
             {
                 UserName = newUser.UserName,
                 Email = newUser.Email

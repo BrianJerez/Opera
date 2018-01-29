@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Opera.Models
 {
-    public class IdentityDataContext : IdentityDbContext<IdentityUser>
+    public class IdentityDataContext : IdentityDbContext<CustomUserFields>
     { 
         public IdentityDataContext(DbContextOptions<IdentityDataContext> options)
         :base(options)

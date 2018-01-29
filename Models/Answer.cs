@@ -1,3 +1,4 @@
+using System;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
@@ -10,6 +11,9 @@ namespace Opera.Models
         
         public string Content_Answer { get; set; }
 
+        public DateTime AnswerDate { get; set; }
+
+        public string UserId { get; set; }
 
         public int QuestionId { get; set; }
         

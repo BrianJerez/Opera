@@ -8,7 +8,7 @@
         @foreach(var item in @Model.Questions)
         {
             <div class="main-page-item">
-                <h2><a href="question/@item.QuestionId">@item.QuestionTitle.Substring(0, 1).ToUpper()@item.QuestionTitle.Substring(1, @item.QuestionTitle.Length-1)</a></h2>
+                <h2><a href="/question/@item.QuestionId">@item.QuestionTitle.Substring(0, 1).ToUpper()@item.QuestionTitle.Substring(1, @item.QuestionTitle.Length-1)</a></h2>
                 <br/>
             </div>
         }
