@@ -9,7 +9,11 @@
     <div class="grid_7 question-box-style">
         <h1>@Model.GetQuestion.QuestionTitle.Substring(0, 1).ToUpper()@Model.GetQuestion.QuestionTitle.Substring(1, @Model.GetQuestion.QuestionTitle.Length-1)</h1>
         <div id="test"></div>
-        <span class="upvote-box"><a href="#">Like</a></span>
+        <span class="upvote-box">
+            <a href="#">Like</a>
+        </span>
+        <span class="report-box"><a href="/reportquestion/@Model.GetQuestion.QuestionId"><img src="/img/static/flag.png"></a></span>
+        <span class="username-box"><a href="/u/@Model.UserFieldsInfo.UserName">@Model.UserFieldsInfo.UserName</a></span>
     </div>
     </div>
 </div>
@@ -29,6 +33,8 @@
             <div class="single-answer">
                 <p>@item.Content_Answer</p>
                 <span class="upvote-box"><a href="#">Like</a></span>
+                <span class="report-box"><a href="/reportanswer/@item.AnswerId"><img src="/img/static/flag.png"></a></span>
+                <span class="username-box"><a href="/u/@Model.UserFieldsInfo.UserName">@Model.UserFieldsInfo.UserName</a></span>
             </div>
         }
     </div>

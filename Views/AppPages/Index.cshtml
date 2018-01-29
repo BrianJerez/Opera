@@ -5,12 +5,17 @@
 
 <div class="container_12">
     <div class="push_1 grid_8">
-        @foreach(var item in @Model.Questions)
+        @if(@Model.Questions.Count() > 0){
+            @foreach(var item in @Model.Questions)
+            {
+                <div class="main-page-item">
+                    <h2><a href="question/@item.QuestionId">@item.QuestionTitle.Substring(0, 1).ToUpper()@item.QuestionTitle.Substring(1, @item.QuestionTitle.Length-1)</a></h2>
+                    <br/>
+                </div>
+            }
+        } else 
         {
-            <div class="main-page-item">
-                <h2><a href="question/@item.QuestionId">@item.QuestionTitle.Substring(0, 1).ToUpper()@item.QuestionTitle.Substring(1, @item.QuestionTitle.Length-1)</a></h2>
-                <br/>
-            </div>
+            <h1 class="nm">There are no posts :(</h1>
         }
         @for(var i = 1; i<@Model.AmmountOfPages+1; i++)
         {

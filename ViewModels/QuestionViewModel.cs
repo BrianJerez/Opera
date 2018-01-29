@@ -11,5 +11,7 @@ namespace Opera.ViewModels
         public IQueryable<Answer> Answers { get; set; }
 
         public string AnswerContent { get; set; }
+
+        public CustomUserFields UserFieldsInfo { get; set; }
     }
 }

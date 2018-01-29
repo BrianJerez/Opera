@@ -89,6 +89,7 @@ namespace Opera.Controllers
             {
                 GetQuestion = _db.Questions.FirstOrDefault( x => x.QuestionId == id),
                 Answers = _db.Answers.Where(x => x.QuestionId == id).OrderByDescending(X => X.AnswerId),
+                UserFieldsInfo = _userManager.FindByNameAsync(User.Identity.Name).Result
             };
             
             ViewBag.Contenido = Markdown.ToHtml(QuestionVM.GetQuestion.QuestionDescription).ToString();
@@ -155,8 +156,32 @@ namespace Opera.Controllers
             return View(paginationView);
         }
 
+        [Route("reportquestion/{id:int}")]
+        public IActionResult ReportQuestion(int id)
+        {
+            _db.QuestionReports.Add(new QuestionReport{
+                QuestionId = id
+            });
+
+            _db.SaveChanges();
+
+            return RedirectToAction("question", id);
+        }
+
+        [Route("reportanswer/{id:int}")]
+        public IActionResult ReportAnswer(int id)
+        {
+            _db.AnswerReports.Add(new AnswerReport{
+                AnswerId = id
+            });
+
+            _db.SaveChanges();
+
+            id = _db.Answers.Find(id).QuestionId;
+            return RedirectToAction("question", id);
+        }
+
         //todo
-        //Add the most recent questions on the index
-        //implement a search, almost done I just have to stylish it
+        //add voting functionality
     }
 }
