@@ -162,3 +162,15 @@ body{
     font-weight: 300;
     color: #18a7dc;
 }
+
+.pagination-item{
+    text-decoration: none;
+    padding: 4px 8px;
+    background: #18a7dc;
+    color: white;
+    margin-right: 5px;
+}
+
+.current{
+    background: #59b9dc !important;
+}

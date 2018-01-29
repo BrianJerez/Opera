@@ -22,13 +22,13 @@
         
         @if(Model.AmmountOfPages > 0)
         {
-            for (int i = 0; i <= (Model.AmmountOfPages == 1 ? -1 : Model.AmmountOfPages); i++)
+            for (int i = 0; i < (Model.AmmountOfPages == 1 ? -1 : Model.AmmountOfPages); i++)
             {
                 @if(i == 0){
-                    <a>@(i+1)</a>    
+                    <a class="pagination-item current">@(i+1)</a>    
                 }
                 else{
-                    <a href="~/search/@ViewBag.Query/@i">@(i+1)</a>
+                    <a class="pagination-item" href="~/search/@ViewBag.Query/@i">@(i+1)</a>
                 }
             }
         }

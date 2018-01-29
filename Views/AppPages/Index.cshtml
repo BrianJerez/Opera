@@ -15,10 +15,10 @@
         @for(var i = 1; i<@Model.AmmountOfPages+1; i++)
         {
             @if(i==1){
-                <a>@i</a>                
+                <a class="pagination-item current">@i</a>                
             }else
             {
-                <a href="/page/@(i)">@(i)</a>                
+                <a class="pagination-item" href="/page/@(i)">@(i)</a>                
             }
         }
     </div>

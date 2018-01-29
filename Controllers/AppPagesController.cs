@@ -120,7 +120,7 @@ namespace Opera.Controllers
 
             PaginationViewModel paginationView = new PaginationViewModel
             {
-                AmmountOfPages = _db.Questions.Count() / 5,
+                AmmountOfPages = Convert.ToDouble(Convert.ToDouble(searchResult.Count()) / 5.0) > (searchResult.Count() / 5) ? (searchResult.Count() / 5) + 1 : searchResult.Count() / 5,
                 Questions = searchResult.OrderByDescending(x => x.QuestionId).Take(5)
             };
 
@@ -133,19 +133,19 @@ namespace Opera.Controllers
         [Route("search/{query}/{id:int}")]
         public IActionResult SearchPage(string query, int id)
         {
-            if(id == 0){
-                return RedirectToAction("Index", "AppPages");
-            }
-
             IQueryable<Question> searchResult = _db.Questions.Where(x => 
                 x.QuestionTitle.Contains(query) || x.QuestionDescription.Contains(query)
             );
 
             PaginationViewModel paginationView = new PaginationViewModel
             {
-                AmmountOfPages = _db.Questions.Count() / 5,
+                AmmountOfPages = Convert.ToDouble(Convert.ToDouble(searchResult.Count()) / 5.0) > (searchResult.Count() / 5) ? (searchResult.Count() / 5) + 1 : searchResult.Count() / 5,
                 Questions = searchResult.OrderByDescending(x => x.QuestionId).Skip(id*5).Take(5)
             };
+
+            if(id == 0){
+                paginationView.Questions = searchResult.OrderByDescending(x => x.QuestionId).Take(5);
+            }
 
             ViewBag.Query = query;
             ViewBag.Id = id;
