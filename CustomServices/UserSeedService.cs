@@ -18,7 +18,9 @@ namespace Opera.CustomServices
             var _user = new CustomUserFields
             {
                 UserName = userName,
-                Email = email
+                Email = email,
+                FullName = "Brian Jerez",
+                Description = "Ain't got no cash Ain't got no style. Ladies vomit when I smile"
             };
 
             var result = await _userManager.CreateAsync(_user, password);

@@ -1,0 +1,38 @@
+@inject Opera.CustomServices.GetAnswerTitle TitleHelp
+@model Opera.ViewModels.UserInfoViewModel
+@{
+    Layout = "_UserLayout";
+}
+
+<div class="container_12">
+    <div class="grid_3 user-info">
+        <img src="https://www.redditstatic.com/avatars/avatar_default_01_7193FF.png">
+        <h2>@Model.UserInfo.FullName</h2>
+        <p>@Model.UserInfo.Description</p>
+    </div>
+    <div class="grid_9">
+        <div class="recent-posts">
+            <h1><span>Recent posts</span><hr/></h1>
+            @if(@Model.Questions.Count() > 0)
+            {
+                @foreach(var item in @Model.Questions)
+                {
+                    <a href="~/question/@item.QuestionId"><h2>@item.QuestionTitle</h2></a>
+                }
+            } else {
+                <a><h2>Nothing to see here :(</h2></a>
+            }
+        </div>
+        <div class="recent-answers">
+            <h1><span>Recent Answers</span><hr/></h1>
+            @if(@Model.Answers.Count() > 0){
+                @foreach(var item in @Model.Answers)
+                {
+                    <a href="~/question/@item.QuestionId"><h2>@TitleHelp.AnswerTitle(@item.QuestionId)</h2></a>
+                }
+            } else {
+                <a><h2>Nothing to see here :(</h2></a>
+            }
+        </div>
+    </div>
+</div>

@@ -25,6 +25,7 @@ namespace Opera.Controllers
         public IActionResult Index(string user)
         {
             var userProfileData = _userManager.FindByNameAsync(User.Identity.Name).Result;
+
             var userInfoData = new UserInfoViewModel
             {
                 UserInfo = userProfileData,
@@ -33,6 +34,15 @@ namespace Opera.Controllers
             };
 
             return View(userInfoData);
+        }
+
+        //todo 
+        //user setting page
+
+        [Route("ProfileSettings")]
+        public IActionResult UserSettings()
+        {
+            return View();
         }
     }
 }

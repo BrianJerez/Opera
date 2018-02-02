@@ -1,0 +1,102 @@
+body{
+    min-width: 1000px;
+    padding-bottom: 100px;
+    font-family: Yantramanav;
+}
+
+.nav-section{
+    background: #18a7dc;
+    background-image: url(../img/static/circuit-board.svg);
+    height: 80px;
+    width: 100%;
+    padding-top: 60px !important;
+    color:white;
+    overflow: hidden;
+    margin-bottom: 60px;
+}
+
+.nav-section a {
+    text-decoration: none;
+    color:white;
+}
+
+.menu a{
+    padding: 10px 20px;
+}
+
+.menu form {
+    display: inline;
+    font-family: inherit;
+}
+
+.menu form button{
+    cursor: pointer;
+    padding: 11px 20px;
+    position: absolute;
+    background: transparent;
+    font-family: inherit;
+    color: white;
+    border: none;
+    margin-left: 4px;
+    margin-top: -11px;
+}
+
+.menu a:hover, .menu form button:hover{
+    background:#0d678879;
+}
+
+.nav-section form input[type=text]{
+    padding: 12px 20px;
+    width: 136%;
+    margin-top: -30px;
+    border: 7px solid #18a7dcb0;
+    border-radius: 1px;
+    color: #18a7dc;
+}
+
+.user-info img{
+    width: 100%;
+}
+
+.user-info h2{
+    font-weight: 300;
+    color: #0c9dd1;
+}
+
+.user-info p{
+    color: #1ab4ec;
+}
+
+.recent-posts{
+    margin-top: -26px;
+}
+
+.recent-posts, .recent-answers{
+    padding-left: 20px;
+    min-height: 300px;
+}
+
+.recent-posts a, .recent-answers a{
+    text-decoration: none;
+}
+
+.recent-posts h1, .recent-answers h1{
+    font-weight: 400;
+    color: #18a7dc;
+}
+
+.recent-posts h2, .recent-answers h2{
+    font-weight: 300;
+    color: #18a7dc;
+}
+
+.recent-posts hr, .recent-answers hr{
+    display: inline-flex;
+    width: 35%;
+    position: absolute;
+    margin-top: 18px;
+    margin-left: 23px;
+    border-color: #1ea7da61;
+}
+
+.recent-answers hr{width: 32.2% !important}

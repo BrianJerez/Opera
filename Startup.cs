@@ -20,6 +20,8 @@ namespace Opera
         private string _identityString = @"Data Source=DESKTOP-2U6NEI8\MSSQLSERVER01;Initial Catalog=Opera_Identity;Integrated Security=True;Pooling=False";
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddSingleton<GetAnswerTitle>();
+
             services.AddDbContext<OperaDataContext>(options => {
                 options.UseSqlServer(_OperaString);
             });

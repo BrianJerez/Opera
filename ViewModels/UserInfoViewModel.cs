@@ -6,7 +6,7 @@ using System.Collections.Generic;
 
 namespace Opera.ViewModels
 {
-    class UserInfoViewModel
+    public class UserInfoViewModel
     {
         public CustomUserFields UserInfo { get; set; }
         public IQueryable<Question> Questions { get; set; }

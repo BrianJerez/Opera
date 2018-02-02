@@ -10,7 +10,6 @@ using Opera.ViewModels;
 using System.Threading.Tasks;
 using Markdig;
 
-
 namespace Opera.Controllers
 {
     [Authorize, Route("")] 
