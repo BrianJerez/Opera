@@ -20,7 +20,8 @@ namespace Opera.CustomServices
                 UserName = userName,
                 Email = email,
                 FullName = "Brian Jerez",
-                Description = "Ain't got no cash Ain't got no style. Ladies vomit when I smile"
+                Description = "Ain't got no cash Ain't got no style. Ladies vomit when I smile",
+                ImageUrl = "/img/static/avatar.png"
             };
 
             var result = await _userManager.CreateAsync(_user, password);

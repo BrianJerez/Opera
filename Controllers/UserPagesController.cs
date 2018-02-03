@@ -2,10 +2,13 @@ using Microsoft.AspNetCore.Mvc;
 using System.ComponentModel.DataAnnotations;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
+using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Hosting;
 using Opera.Models;
 using Opera.ViewModels;
 using System.Linq;
+using System.IO;
 
 namespace Opera.Controllers
 {
@@ -14,10 +17,17 @@ namespace Opera.Controllers
     {
         private UserManager<CustomUserFields> _userManager;
         private OperaDataContext _db;
-        public UserPagesController(UserManager<CustomUserFields> userManager, OperaDataContext db)
+
+        private IdentityDataContext _users;
+
+        private string _folder;
+
+        public UserPagesController(UserManager<CustomUserFields> userManager, IdentityDataContext users, OperaDataContext db, IHostingEnvironment env)
         {
             _userManager = userManager;
             _db = db;
+            _users = users;
+            _folder = $@"{env.WebRootPath}";
         }
         //todo
         //implement an user profile
@@ -43,6 +53,36 @@ namespace Opera.Controllers
         public IActionResult UserSettings()
         {
             return View();
+        }
+
+        [HttpPost, Route("ProfileSettings")]
+        public async Task<IActionResult> UserSettings(ProfileUpdate profileUpdate)
+        {
+            var x = _userManager.FindByNameAsync(User.Identity.Name);
+            if(!string.IsNullOrEmpty(profileUpdate.FullName) && !string.IsNullOrWhiteSpace(profileUpdate.FullName) )
+            {
+                x.Result.FullName = profileUpdate.FullName;
+            }
+
+            if(!string.IsNullOrEmpty(profileUpdate.Description) && !string.IsNullOrWhiteSpace(profileUpdate.Description) )
+            {
+                x.Result.Description = profileUpdate.Description;
+            }
+
+            if(profileUpdate.Image != null){
+                var fullpath = _folder + $"/img/uploads/{profileUpdate.Image.FileName}";
+                var shortPath = $"/img/uploads/{profileUpdate.Image.FileName}";
+                using (var stream = new FileStream(fullpath, FileMode.Create))
+                {
+                    await profileUpdate.Image.CopyToAsync(stream);
+                }
+                
+                x.Result.ImageUrl = shortPath;
+            }
+
+            _users.SaveChanges();
+
+            return RedirectToAction("UserSettings");
         }
     }
 }

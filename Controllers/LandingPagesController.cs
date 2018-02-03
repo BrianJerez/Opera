@@ -58,7 +58,8 @@ namespace Opera.Controllers
             CustomUserFields _newUser = new CustomUserFields
             {
                 UserName = newUser.UserName,
-                Email = newUser.Email
+                Email = newUser.Email,
+                ImageUrl = "/img/static/avatar.png"
             };
 
             IdentityResult result = await _userManager.CreateAsync(_newUser, newUser.Password);

@@ -1,6 +1,14 @@
+@model Opera.Models.ProfileUpdate
 @{
     Layout = "_UserLayout";
 }
-
-<form action="ProfileSettings" enctype="multipart/form-data" method="post">
-</form>
+<div class="container_12">
+    <div class="grid_12">
+        <form action="ProfileSettings" enctype="multipart/form-data" method="post">
+            @Html.EditorFor(m => m.FullName)
+            @Html.EditorFor(m => m.Description)
+            @Html.EditorFor(m => m.Image)
+            <button type="submit">Save</button>
+        </form>
+    </div>
+</div>
