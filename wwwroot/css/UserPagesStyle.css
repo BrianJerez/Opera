@@ -100,3 +100,41 @@ body{
 }
 
 .recent-answers hr{width: 32.2% !important}
+
+.userSettings h1{
+    font-weight: 400;
+    color: #0c9dd1;
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.userSettings input[type=file]{
+    margin-bottom: 20px;
+}
+
+.userSettings input[type=text]{
+    width: 93%;
+    font-family: inherit;
+    color: #0c9dd1;
+    margin-bottom: 20px;
+    padding: 10px 20px;
+}
+
+.userSettings textarea{
+    height: 120px;
+    width: 93%;
+    font-family: inherit;
+    color: #0c9dd1;
+    margin-bottom: 20px;
+    padding: 10px 20px;
+}
+
+.userSettings button{
+    text-decoration: none;
+    padding: 12px 30px;
+    background: #18a7dc;
+    color: white;
+    font-family: inherit;
+    border:none;
+    cursor: pointer
+}

@@ -1,13 +1,21 @@
 @model Opera.Models.ProfileUpdate
+@addTagHelper "*, Microsoft.AspNetCore.Mvc.TagHelpers"
 @{
     Layout = "_UserLayout";
 }
 <div class="container_12">
-    <div class="grid_12">
+    <div class="grid_8 push_2 userSettings">
+        <h1>Profile Settings</h1>
         <form action="ProfileSettings" enctype="multipart/form-data" method="post">
-            @Html.EditorFor(m => m.FullName)
-            @Html.EditorFor(m => m.Description)
-            @Html.EditorFor(m => m.Image)
+            <label id="ImageL" asp-for="Image">
+                <input type="file" asp-for="Image" placeholder="Choose an image"/>
+            </label>
+            <div class="small-fix">
+            <input type="text" asp-for="FullName" placeholder="Change your name"/>
+            </div>
+            <div>
+            <textarea asp-for="Description" placeholder="Change your description"></textarea>
+            </div>
             <button type="submit">Save</button>
         </form>
     </div>
