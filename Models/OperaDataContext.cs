@@ -10,6 +10,7 @@ namespace Opera.Models
         public DbSet<Category> Categories { get; set; }
         public DbSet<QuestionReport> QuestionReports { get; set; }
         public DbSet<AnswerReport> AnswerReports { get; set; }
+        public DbSet<Notification> Notifications { get; set; }
         
         public OperaDataContext(DbContextOptions<OperaDataContext> options)
         :base(options)

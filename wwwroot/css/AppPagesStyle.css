@@ -191,3 +191,7 @@ body{
     color: #5fc2e7;
     margin-right: 4px;
 }
+
+.notification-color, .notification-color:hover{
+    background: red !important;
+}

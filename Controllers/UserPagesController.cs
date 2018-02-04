@@ -22,6 +22,8 @@ namespace Opera.Controllers
 
         private string _folder;
 
+        private CustomUserFields _userinfo;
+
         public UserPagesController(UserManager<CustomUserFields> userManager, IdentityDataContext users, OperaDataContext db, IHostingEnvironment env)
         {
             _userManager = userManager;
@@ -29,12 +31,14 @@ namespace Opera.Controllers
             _users = users;
             _folder = $@"{env.WebRootPath}";
         }
-        //todo
-        //implement an user profile
+
         [Route("/u/{usuario}")]
         public IActionResult Index(string user)
         {
             var userProfileData = _userManager.FindByNameAsync(User.Identity.Name).Result;
+
+            ViewBag.Notifications = _db.Notifications.OrderBy(x => x.Date)
+            .Where(x => x.Seen == false && x.Question.UserId == userProfileData.Id).Count() > 0 ? "notification-color" : "";
 
             var userInfoData = new UserInfoViewModel
             {
@@ -52,6 +56,11 @@ namespace Opera.Controllers
         [Route("ProfileSettings")]
         public IActionResult UserSettings()
         {
+            _userinfo = _userManager.FindByNameAsync(User.Identity.Name).Result;
+
+            ViewBag.Notifications = _db.Notifications.OrderBy(x => x.Date)
+            .Where(x => x.Seen == false && x.Question.UserId == _userinfo.Id).Count() > 0 ? "notification-color" : "";
+
             return View();
         }
 
@@ -83,6 +92,18 @@ namespace Opera.Controllers
             _users.SaveChanges();
 
             return RedirectToAction("UserSettings");
+        }
+
+        [Route("Notifications")]
+        public IActionResult Notifications(){
+            _userinfo = _userManager.FindByNameAsync(User.Identity.Name).Result;
+
+            var currentNotifications = _db.Notifications.OrderBy(x => x.Date)
+            .Where(x => x.Seen == false && x.Question.UserId == _userinfo.Id);
+
+            ViewBag.DbExecute = _db;
+
+            return View(currentNotifications);
         }
     }
 }

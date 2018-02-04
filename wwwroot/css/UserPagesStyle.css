@@ -138,3 +138,33 @@ body{
     border:none;
     cursor: pointer
 }
+
+
+.notification-color{
+    background: red;
+}
+
+.notification-color:hover{
+    background: red !important;
+}
+
+.notification-container{
+    text-align: center;
+}
+.notification-container h1{
+    font-weight: 300;
+    color: #0c9dd1;
+    margin-bottom: 60px;
+}
+
+.notification-container p{
+    margin-bottom: 40px;
+}
+
+.notification-container a{
+    color: #18a7dc;
+    padding: 12px 50px;
+    border: 1px solid #18a7dc;
+    text-decoration: none !important;
+    text-transform: capitalize
+}

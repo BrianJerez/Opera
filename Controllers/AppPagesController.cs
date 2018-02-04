@@ -17,6 +17,7 @@ namespace Opera.Controllers
     {
         private OperaDataContext _db;
         private UserManager<CustomUserFields> _userManager;
+        private CustomUserFields _userinfo;
 
         public AppPagesController(UserManager<CustomUserFields> userManager, OperaDataContext db) 
         {
@@ -27,6 +28,11 @@ namespace Opera.Controllers
         [Route("dashboard")]
         public IActionResult Index()
         {
+            _userinfo = _userManager.FindByNameAsync(User.Identity.Name).Result;
+            
+            ViewBag.Notifications = _db.Notifications.OrderBy(x => x.Date)
+            .Where(x => x.Seen == false && x.Question.UserId == _userinfo.Id).Count() > 0 ? "notification-color" : "";
+
             PaginationViewModel paginationView = new PaginationViewModel
             {
                 AmmountOfPages = Convert.ToDouble(_db.Questions.Count()) / Convert.ToDouble(5) > ( _db.Questions.Count() / 5 ) ? (_db.Questions.Count() / 5) + 1 : _db.Questions.Count() / 5,
@@ -39,6 +45,11 @@ namespace Opera.Controllers
         [Route("page/{id:int}")]
         public IActionResult Page(int id)
         {
+            _userinfo = _userManager.FindByNameAsync(User.Identity.Name).Result;
+            
+            ViewBag.Notifications = _db.Notifications.OrderBy(x => x.Date)
+            .Where(x => x.Seen == false && x.Question.UserId == _userinfo.Id).Count() > 0 ? "notification-color" : "";
+
             if(id == 0 || id == 1){
                 return RedirectToAction("Index", "AppPages");
             }
@@ -57,6 +68,11 @@ namespace Opera.Controllers
         [Route("ask")]
         public IActionResult AddQuestion()
         {
+            _userinfo = _userManager.FindByNameAsync(User.Identity.Name).Result;
+            
+            ViewBag.Notifications = _db.Notifications.OrderBy(x => x.Date)
+            .Where(x => x.Seen == false && x.Question.UserId == _userinfo.Id).Count() > 0 ? "notification-color" : "";
+
             return View();
         }
 
@@ -83,12 +99,17 @@ namespace Opera.Controllers
         [Route("question/{id:int}")]
         public IActionResult Question(int id)
         {
+            _userinfo = _userManager.FindByNameAsync(User.Identity.Name).Result;
+            
+            ViewBag.Notifications = _db.Notifications.OrderBy(x => x.Date)
+            .Where(x => x.Seen == false && x.Question.UserId == _userinfo.Id).Count() > 0 ? "notification-color" : "";
+
             ViewBag.Id = id;
             var QuestionVM = new QuestionViewModel
             {
                 GetQuestion = _db.Questions.FirstOrDefault( x => x.QuestionId == id),
                 Answers = _db.Answers.Where(x => x.QuestionId == id).OrderByDescending(X => X.AnswerId),
-                UserFieldsInfo = _userManager.FindByNameAsync(User.Identity.Name).Result
+                UserFieldsInfo = _userinfo
             };
             
             ViewBag.Contenido = Markdown.ToHtml(QuestionVM.GetQuestion.QuestionDescription).ToString();
@@ -108,6 +129,14 @@ namespace Opera.Controllers
             };
 
             await _db.Answers.AddAsync(newAnswer);
+            
+            await _db.Notifications.AddAsync(new Notification{
+                UserName = User.Identity.Name,
+                Date = DateTime.Now,
+                Seen = false,
+                QuestionId = id
+            });
+            
             _db.SaveChanges();
 
             return RedirectToAction("question", id);
@@ -116,6 +145,11 @@ namespace Opera.Controllers
         [HttpGet, Route("search")]
         public IActionResult Search(string query)
         {
+            _userinfo = _userManager.FindByNameAsync(User.Identity.Name).Result;
+            
+            ViewBag.Notifications = _db.Notifications.OrderBy(x => x.Date)
+            .Where(x => x.Seen == false && x.Question.UserId == _userinfo.Id).Count() > 0 ? "notification-color" : "";
+
             IQueryable<Question> searchResult = _db.Questions.Where(x => 
                 x.QuestionTitle.Contains(query) || x.QuestionDescription.Contains(query)
             );
@@ -135,6 +169,11 @@ namespace Opera.Controllers
         [Route("search/{query}/{id:int}")]
         public IActionResult SearchPage(string query, int id)
         {
+            _userinfo = _userManager.FindByNameAsync(User.Identity.Name).Result;
+            
+            ViewBag.Notifications = _db.Notifications.OrderBy(x => x.Date)
+            .Where(x => x.Seen == false && x.Question.UserId == _userinfo.Id).Count() > 0 ? "notification-color" : "";
+
             IQueryable<Question> searchResult = _db.Questions.Where(x => 
                 x.QuestionTitle.Contains(query) || x.QuestionDescription.Contains(query)
             );
@@ -158,6 +197,11 @@ namespace Opera.Controllers
         [Route("reportquestion/{id:int}")]
         public IActionResult ReportQuestion(int id)
         {
+            _userinfo = _userManager.FindByNameAsync(User.Identity.Name).Result;
+            
+            ViewBag.Notifications = _db.Notifications.OrderBy(x => x.Date)
+            .Where(x => x.Seen == false && x.Question.UserId == _userinfo.Id).Count() > 0 ? "notification-color" : "";
+
             _db.QuestionReports.Add(new QuestionReport{
                 QuestionId = id
             });
@@ -170,6 +214,11 @@ namespace Opera.Controllers
         [Route("reportanswer/{id:int}")]
         public IActionResult ReportAnswer(int id)
         {
+            _userinfo = _userManager.FindByNameAsync(User.Identity.Name).Result;
+            
+            ViewBag.Notifications = _db.Notifications.OrderBy(x => x.Date)
+            .Where(x => x.Seen == false && x.Question.UserId == _userinfo.Id).Count() > 0 ? "notification-color" : "";
+            
             _db.AnswerReports.Add(new AnswerReport{
                 AnswerId = id
             });

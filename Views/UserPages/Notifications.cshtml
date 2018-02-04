@@ -1,0 +1,23 @@
+@model IQueryable<Opera.Models.Notification>
+@{
+    Layout = "_UserLayout";
+    foreach (var item in Model)
+    {
+        item.Seen = true;
+    }
+}
+<div class="container_12">
+    <div class="grid_5 push_3 notification-container">
+        <h1>Notifications</h1>
+        @foreach(var item in @Model)
+        {
+            <p>
+                <a href="~/question/@item.QuestionId#answers">@item.UserName has commented your question</a>
+            </p>
+        }
+    </div>
+</div>
+
+@{
+    ViewBag.DbExecute.SaveChanges();
+}
